@@ -1,0 +1,258 @@
+<html>
+<?php $this->load->view($template_folder . '/declaration/include/head_page.php'); ?>
+
+<body class="">
+    <form id="question" class="form-signin text-center " action="/declaration/finish" method="POST">
+        <img class="logo" src="/assets/img/fivelements.png" alt="" width="125" height="auto">
+        <h5>TRAVEL DECLARATION FORM</h5>
+        <hr>
+        <div class="text-left mt-4 pl-2 pr-2">
+
+            <ol class="list-group">
+
+                <li class="ml-4">Have you now, or in the past 48 hours, had any of the following flu-like symptoms?</li>
+
+                <ul>
+                    <li class="mt-3">
+                        Fever (above 37.3C)
+                        <div>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="yq1" name="q1" value="yes" <?php echo ($this->session->q1 == 0) ? "checked" : ""; ?> />
+                                <label for="yq1">Yes</label>
+                            </span>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="nq1" name="q1" value="no" <?php echo ($this->session->q1 == 1) ? "checked" : ""; ?> />
+                                <label for="nq1">No</label>
+                            </span>
+                        </div>
+                        <div id="warn-q1" class="warning-textarea"></div>
+                    </li>
+                    <li class="mt-3">
+                        Breathlessness
+                        <div>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="yq2" name="q2" value="yes" <?php echo ($this->session->q2 == 0) ? "checked" : ""; ?> />
+                                <label for="yq2">Yes</label>
+                            </span>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="nq2" name="q2" value="no" <?php echo ($this->session->q2 == 1) ? "checked" : ""; ?> />
+                                <label for="nq2">No</label>
+                            </span>
+                        </div>
+                        <div id="warn-q2" class="warning-textarea"></div>
+                    </li>
+                    <li class="mt-3">
+                        Cough
+                        <div>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="yq3" name="q3" value="yes" <?php echo ($this->session->q3 == 0) ? "checked" : ""; ?> />
+                                <label for="yq3">Yes</label>
+                            </span>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="nq3" name="q3" value="no" <?php echo ($this->session->q3 == 1) ? "checked" : ""; ?> />
+                                <label for="nq3">No</label>
+                            </span>
+                        </div>
+                        <div id="warn-q3" class="warning-textarea"></div>
+                    </li>
+                    <li class="mt-3">
+                        Sore throat
+                        <div>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="yq4" name="q4" value="yes" <?php echo ($this->session->q4 == 0) ? "checked" : ""; ?> />
+                                <label for="yq4">Yes</label>
+                            </span>
+                            <span class="radiobtn mt-2 form-check form-check-inline">
+                                <input type="radio" id="nq4" name="q4" value="no" <?php echo ($this->session->q4 == 1) ? "checked" : ""; ?> />
+                                <label for="nq4">No</label>
+                            </span>
+                        </div>
+                        <div id="warn-q4" class="warning-textarea"></div>
+                    </li>
+                </ul>
+
+                <li class="ml-4 mt-4">
+                    Have you or any immediate family members been overseas in the past 14 days?
+                    <div>
+                        <span class="radiobtn mt-2 form-check form-check-inline">
+                            <input type="radio" id="yq5" name="q5" value="yes" <?php echo ($this->session->q5 == 0) ? "checked" : ""; ?> />
+                            <label for="yq5">Yes</label>
+                        </span>
+                        <span class="radiobtn mt-2 form-check form-check-inline">
+                            <input type="radio" id="nq5" name="q5" value="no" <?php echo ($this->session->q5 == 1) ? "checked" : ""; ?> />
+                            <label for="nq5">No</label>
+                        </span>
+                        <div id="warn-q5" class="warning-textarea"></div>
+                        <div class="row px-3 text-left font-18 mt-3">
+                            If yes, where ?
+                        </div>
+                        <div class="row px-3 text-left font-18 mb-2 mt-2">
+                            <textarea name="q6" style="width:100%"><?php echo $this->session->q6; ?></textarea>
+                        </div>
+                        <div id="warn-q6" class="warning-textarea">
+                            Please describe
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ml-4 mt-4">
+                    Have you or any immediate family members been come close into contact with a confirmed case of Covid-19?
+                    <div>
+                        <span class="radiobtn mt-2 form-check form-check-inline">
+                            <input type="radio" id="yq7" name="q7" value="yes" <?php echo ($this->session->q7 == 0) ? "checked" : ""; ?> />
+                            <label for="yq7">Yes</label>
+                        </span>
+                        <span class="radiobtn mt-2 form-check form-check-inline">
+                            <input type="radio" id="nq7" name="q7" value="no" <?php echo ($this->session->q7 == 1) ? "checked" : ""; ?> />
+                            <label for="nq7">No</label>
+                        </span>
+                        <div id="warn-q7" class="warning-textarea"></div>
+                        <div class="row px-3 text-left font-18 mt-3">
+                            If yes, where ?
+                        </div>
+                        <div class="row px-3 text-left font-18 mb-2 mt-3">
+                            <textarea name="q8" style="width:100%"><?php echo $this->session->q8; ?></textarea>
+                        </div>
+                        <div id="warn-q8" class="warning-textarea">
+                            Please describe
+                        </div>
+                    </div>
+                </li>
+            </ol>
+
+            <hr>
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" value="" id="q9">
+                <label class="form-check-label font-18" for="defaultCheck1">
+                    I hereby declare that the above information is correct.
+                </label>
+                <div id="warn-q9" class="warning-textarea">
+                    Please select
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <input type="hidden" name="arrival_date" value="<?= $arrival_date; ?>">
+                <input type="hidden" name="arrival_time" value="<?= $arrival_time; ?>">
+                <div class="col">
+                    <button class="btn btn-lg btn-secondary btn-block" onclick="window.history.back(); return false;">Back</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Finish</button>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var pilih = 'Select yes or no !';
+        $('#question').submit(function() {
+            if ($('#yq1').is(':not(:checked)') && $('#nq1').is(':not(:checked)')) {
+                $('#warn-q1').html(pilih);
+                $('#warn-q1').show();
+                event.preventDefault();
+            }
+            if ($('#yq2').is(':not(:checked)') && $('#nq2').is(':not(:checked)')) {
+                $('#warn-q2').html(pilih);
+                $('#warn-q2').show();
+                event.preventDefault();
+            }
+            if ($('#yq3').is(':not(:checked)') && $('#nq3').is(':not(:checked)')) {
+                $('#warn-q3').html(pilih);
+                $('#warn-q3').show();
+                event.preventDefault();
+            }
+            if ($('#yq4').is(':not(:checked)') && $('#nq4').is(':not(:checked)')) {
+                $('#warn-q4').html(pilih);
+                $('#warn-q4').show();
+                event.preventDefault();
+            }
+            if ($('#yq5').is(':not(:checked)') && $('#nq5').is(':not(:checked)')) {
+                $('#warn-q5').html(pilih);
+                $('#warn-q5').show();
+                event.preventDefault();
+            }
+            if ($('#yq5').is(':checked')) {
+                var comment = $.trim($('textarea[name="q6"]').val());
+                if (comment == "") {
+                    $('#warn-q6').show();
+                    event.preventDefault();
+                }
+            }
+            if ($('#yq7').is(':not(:checked)') && $('#nq7').is(':not(:checked)')) {
+                $('#warn-q7').html(pilih);
+                $('#warn-q7').show();
+                event.preventDefault();
+            }
+            if ($('#yq7').is(':checked')) {
+                var comment = $.trim($('textarea[name="q8"]').val());
+                if (comment == "") {
+                    $('#warn-q8').show();
+                    event.preventDefault();
+                }
+            }
+            if ($('#q9').is(':not(:checked)')) {
+                $('#warn-q9').show();
+                event.preventDefault();
+            }
+        });
+
+        $('#yq1').click(function() {
+            $('#warn-q1').hide();
+        });
+        $('#nq1').click(function() {
+            $('#warn-q1').hide();
+        });
+        $('#yq2').click(function() {
+            $('#warn-q2').hide();
+        });
+        $('#nq2').click(function() {
+            $('#warn-q2').hide();
+        });
+        $('#yq3').click(function() {
+            $('#warn-q3').hide();
+        });
+        $('#nq3').click(function() {
+            $('#warn-q3').hide();
+        });
+        $('#yq4').click(function() {
+            $('#warn-q4').hide();
+        });
+        $('#nq4').click(function() {
+            $('#warn-q4').hide();
+        });
+        $('#yq5').click(function() {
+            $('#warn-q5').hide();
+        });
+        $('#nq5').click(function() {
+            $('#warn-q5').hide();
+        });
+        $('#yq6').click(function() {
+            $('#warn-q6').hide();
+        });
+        $('#nq6').click(function() {
+            $('#warn-q6').hide();
+        });
+        $('#nq7').click(function() {
+            $('#warn-q7').hide();
+        });
+        $('#q9').click(function() {
+            $('#warn-q9').hide();
+        });
+    });
+
+    $('textarea[name="q6"]').focus(function() {
+        $('#warn-q6').hide();
+    });
+
+    $('textarea[name="q8"]').focus(function() {
+        $('#warn-q8').hide();
+    });
+</script>
+
+</html>
