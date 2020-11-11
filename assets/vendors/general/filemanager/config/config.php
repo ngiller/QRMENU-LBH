@@ -61,6 +61,10 @@ define('DEBUG_ERROR_MESSAGE', false); // TRUE or FALSE
 |    |   |   |   |- responsivefilemanager
 |    |   |   |   |   |- plugin.min.js
 */
+$uploaddir = '/uploads/' . $folder . '/';
+$currentpath = '../../../../uploads/' . $folder . '/';
+$thumbsbasepath = '../../../../uploads/thumbs/' . $folder . '/';
+$thumbsuploaddir = '/uploads/thumbs/' . $folder . '/';
 
 $config = array(
 
@@ -72,7 +76,7 @@ $config = array(
     | without final / (DON'T TOUCH)
     |
     */
-    'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http"). "://". @$_SERVER['HTTP_HOST'],
+    'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http") . "://" . @$_SERVER['HTTP_HOST'],
     /*
     |--------------------------------------------------------------------------
     | path from base_url to base of upload folder
@@ -81,7 +85,7 @@ $config = array(
     | with start and final /
     |
     */
-    'upload_dir' => '/uploads/'.$folder.'/',
+    'upload_dir' => $uploaddir,
     /*
     |--------------------------------------------------------------------------
     | relative path from filemanager folder to upload folder
@@ -90,7 +94,7 @@ $config = array(
     | with final /
     |
     */
-    'current_path' => '../../../../uploads/'.$folder.'/',
+    'current_path' => $currentpath,
 
     /*
     |--------------------------------------------------------------------------
@@ -101,7 +105,7 @@ $config = array(
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_base_path' => '../../../../uploads/'.$folder.'/',
+    'thumbs_base_path' => $thumbsbasepath,
 
     /*
     |--------------------------------------------------------------------------
@@ -112,7 +116,7 @@ $config = array(
     | DO NOT put inside upload folder
     |
     */
-    'thumbs_upload_dir' => '/thumbs/',
+    'thumbs_upload_dir' => $thumbsuploaddir,
 
 
     /*
@@ -123,7 +127,7 @@ $config = array(
     | If you want to be forced to assign the extension starting from the mime type
     |
     */
-    'mime_extension_rename'	=> true,
+    'mime_extension_rename'    => true,
 
 
     /*
@@ -248,23 +252,23 @@ $config = array(
 
 
     //Show or not total size in filemanager (is possible to greatly increase the calculations)
-    'show_total_size'						=> false,
+    'show_total_size'                        => false,
     //Show or not show folder size in list view feature in filemanager (is possible, if there is a large folder, to greatly increase the calculations)
-    'show_folder_size'						=> false,
+    'show_folder_size'                        => false,
     //Show or not show sorting feature in filemanager
-    'show_sorting_bar'						=> true,
+    'show_sorting_bar'                        => true,
     //Show or not show filters button in filemanager
     'show_filter_buttons'                   => true,
     //Show or not language selection feature in filemanager
-    'show_language_selection'				=> true,
+    'show_language_selection'                => true,
     //active or deactive the transliteration (mean convert all strange characters in A..Za..z0..9 characters)
-    'transliteration'						=> false,
+    'transliteration'                        => false,
     //convert all spaces on files name and folders name with $replace_with variable
-    'convert_spaces'						=> false,
+    'convert_spaces'                        => false,
     //convert all spaces on files name and folders name this value
-    'replace_with'							=> "_",
+    'replace_with'                            => "_",
     //convert to lowercase the files and folders name
-    'lower_case'							=> false,
+    'lower_case'                            => false,
 
     //Add ?484899493349 (time value) to returned images to prevent cache
     'add_time_to_img'                       => false,
@@ -306,7 +310,7 @@ $config = array(
     // WATERMARK IMAGE
     //
     //Watermark path or false
-    'image_watermark'                          => false,//"../watermark.png",
+    'image_watermark'                          => false, //"../watermark.png",
     # Could be a pre-determined position such as:
     #           tl = top left,
     #           t  = top (middle),
@@ -356,24 +360,24 @@ $config = array(
     'preview_text_files'                      => true, // eg.: txt, log etc.
     'edit_text_files'                         => true, // eg.: txt, log etc.
     'create_text_files'                       => true, // only create files with exts. defined in $config['editable_text_file_exts']
-    'download_files'			  => true, // allow download files or just preview
+    'download_files'              => true, // allow download files or just preview
 
     // you can preview these type of files if $preview_text_files is true
-    'previewable_text_file_exts'              => array( "bsh", "c","css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml","xsl",'txt', 'log','' ),
+    'previewable_text_file_exts'              => array("bsh", "c", "css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml", "xsl", 'txt', 'log', ''),
 
     // you can edit these type of files if $edit_text_files is true (only text based files)
     // you can create these type of files if $config['create_text_files'] is true (only text based files)
     // if you want you can add html,css etc.
     // but for security reasons it's NOT RECOMMENDED!
-    'editable_text_file_exts'                 => array( 'txt', 'log', 'xml', 'html', 'css', 'htm', 'js','' ),
+    'editable_text_file_exts'                 => array('txt', 'log', 'xml', 'html', 'css', 'htm', 'js', ''),
 
-    'jplayer_exts'                            => array("mp4","flv","webmv","webma","webm","m4a","m4v","ogv","oga","mp3","midi","mid","ogg","wav"),
+    'jplayer_exts'                            => array("mp4", "flv", "webmv", "webma", "webm", "m4a", "m4v", "ogv", "oga", "mp3", "midi", "mid", "ogg", "wav"),
 
     'cad_exts'                                => array('dwg', 'dxf', 'hpgl', 'plt', 'spl', 'step', 'stp', 'iges', 'igs', 'sat', 'cgm', 'svg'),
 
     // Preview with Google Documents
     'googledoc_enabled'                       => true,
-    'googledoc_file_exts'                     => array( 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx' , 'pdf', 'odt', 'odp', 'ods'),
+    'googledoc_file_exts'                     => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'odt', 'odp', 'ods'),
 
     // defines size limit for paste in MB / operation
     // set 'FALSE' for no limit
@@ -386,18 +390,18 @@ $config = array(
     //**********************
     //Allowed extensions (lowercase insert)
     //**********************
-    'ext_img'                                 => array( 'jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'ico' ), //Images
-    'ext_file'                                => array( 'doc', 'docx', 'rtf', 'pdf', 'xls', 'xlsx', 'txt', 'csv', 'html', 'xhtml', 'psd', 'sql', 'log', 'fla', 'xml', 'ade', 'adp', 'mdb', 'accdb', 'ppt', 'pptx', 'odt', 'ots', 'ott', 'odb', 'odg', 'otp', 'otg', 'odf', 'ods', 'odp', 'css', 'ai', 'kmz','dwg', 'dxf', 'hpgl', 'plt', 'spl', 'step', 'stp', 'iges', 'igs', 'sat', 'cgm', 'tiff',''), //Files
-    'ext_video'                               => array( 'mov', 'mpeg', 'm4v', 'mp4', 'avi', 'mpg', 'wma', "flv", "webm" ), //Video
-    'ext_music'                               => array( 'mp3', 'mpga', 'm4a', 'ac3', 'aiff', 'mid', 'ogg', 'wav' ), //Audio
-    'ext_misc'                                => array( 'zip', 'rar', 'gz', 'tar', 'iso', 'dmg' ), //Archives
+    'ext_img'                                 => array('jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg', 'ico'), //Images
+    'ext_file'                                => array('doc', 'docx', 'rtf', 'pdf', 'xls', 'xlsx', 'txt', 'csv', 'html', 'xhtml', 'psd', 'sql', 'log', 'fla', 'xml', 'ade', 'adp', 'mdb', 'accdb', 'ppt', 'pptx', 'odt', 'ots', 'ott', 'odb', 'odg', 'otp', 'otg', 'odf', 'ods', 'odp', 'css', 'ai', 'kmz', 'dwg', 'dxf', 'hpgl', 'plt', 'spl', 'step', 'stp', 'iges', 'igs', 'sat', 'cgm', 'tiff', ''), //Files
+    'ext_video'                               => array('mov', 'mpeg', 'm4v', 'mp4', 'avi', 'mpg', 'wma', "flv", "webm"), //Video
+    'ext_music'                               => array('mp3', 'mpga', 'm4a', 'ac3', 'aiff', 'mid', 'ogg', 'wav'), //Audio
+    'ext_misc'                                => array('zip', 'rar', 'gz', 'tar', 'iso', 'dmg'), //Archives
 
 
     //*********************
     //  If you insert an extensions blacklist array the filemanager don't check any extensions but simply block the extensions in the list
     //  otherwise check Allowed extensions configuration
     //*********************
-    'ext_blacklist'							  => false,//['exe','bat','jpg'],
+    'ext_blacklist'                              => false, //['exe','bat','jpg'],
 
 
     //Empty filename permits like .htaccess, .env, ...
@@ -411,7 +415,7 @@ $config = array(
     | If you want to accept files without extension, remember to add '' extension on allowed extension
     |
     */
-    'files_without_extension'	              => false,
+    'files_without_extension'                  => false,
 
     /******************
     * TUI Image Editor config
@@ -498,7 +502,7 @@ $config = array(
     // set the names of any folders you want hidden (eg "hidden_folder1", "hidden_folder2" ) Remember all folders with these names will be hidden (you can set any exceptions in config.php files on folders)
     'hidden_folders'                          => array(),
     // set the names of any files you want hidden. Remember these names will be hidden in all folders (eg "this_document.pdf", "that_image.jpg" )
-    'hidden_files'                            => array( 'config.php' ),
+    'hidden_files'                            => array('config.php'),
 
     /*******************
     * URL upload
@@ -519,11 +523,11 @@ $config = array(
     // PS if there isn't write permission in your destination folder you must set it
     //
     'fixed_image_creation'                    => false, //activate or not the creation of one or more image resized with fixed path from filemanager folder
-    'fixed_path_from_filemanager'             => array( '../test/', '../test1/' ), //fixed path of the image folder from the current position on upload folder
-    'fixed_image_creation_name_to_prepend'    => array( '', 'test_' ), //name to prepend on filename
-    'fixed_image_creation_to_append'          => array( '_test', '' ), //name to appendon filename
-    'fixed_image_creation_width'              => array( 300, 400 ), //width of image
-    'fixed_image_creation_height'             => array( 200, 300 ), //height of image
+    'fixed_path_from_filemanager'             => array('../test/', '../test1/'), //fixed path of the image folder from the current position on upload folder
+    'fixed_image_creation_name_to_prepend'    => array('', 'test_'), //name to prepend on filename
+    'fixed_image_creation_to_append'          => array('_test', ''), //name to appendon filename
+    'fixed_image_creation_width'              => array(300, 400), //width of image
+    'fixed_image_creation_height'             => array(200, 300), //height of image
     /*
     #             $option:     0 / exact = defined size;
     #                          1 / portrait = keep aspect set height;
@@ -531,7 +535,7 @@ $config = array(
     #                          3 / auto = auto;
     #                          4 / crop= resize and crop;
     */
-    'fixed_image_creation_option'             => array( 'crop', 'auto' ), //set the type of the crop
+    'fixed_image_creation_option'             => array('crop', 'auto'), //set the type of the crop
 
 
     // New image resized creation with relative path inside to upload folder after uploading (thumbnails in relative mode)
@@ -540,11 +544,11 @@ $config = array(
     // The image creation path is always relative so if i'm inside source/test/test1 and I upload an image, the path start from here
     //
     'relative_image_creation'                 => false, //activate or not the creation of one or more image resized with relative path from upload folder
-    'relative_path_from_current_pos'          => array( './', './' ), //relative path of the image folder from the current position on upload folder
-    'relative_image_creation_name_to_prepend' => array( '', '' ), //name to prepend on filename
-    'relative_image_creation_name_to_append'  => array( '_thumb', '_thumb1' ), //name to append on filename
-    'relative_image_creation_width'           => array( 300, 400 ), //width of image
-    'relative_image_creation_height'          => array( 200, 300 ), //height of image
+    'relative_path_from_current_pos'          => array('./', './'), //relative path of the image folder from the current position on upload folder
+    'relative_image_creation_name_to_prepend' => array('', ''), //name to prepend on filename
+    'relative_image_creation_name_to_append'  => array('_thumb', '_thumb1'), //name to append on filename
+    'relative_image_creation_width'           => array(300, 400), //width of image
+    'relative_image_creation_height'          => array(200, 300), //height of image
     /*
      * $option:     0 / exact = defined size;
      *              1 / portrait = keep aspect set height;
@@ -552,7 +556,7 @@ $config = array(
      *              3 / auto = auto;
      *              4 / crop= resize and crop;
      */
-    'relative_image_creation_option'          => array( 'crop', 'crop' ), //set the type of the crop
+    'relative_image_creation_option'          => array('crop', 'crop'), //set the type of the crop
 
 
     // Remember text filter after close filemanager for future session
@@ -575,7 +579,7 @@ return array_merge(
             //'common.bisize.width'               => $config['common.bisize.width'],
             //'common.bisize.height'              => $config['common.bisize.height'], 
             'common.backgroundImage'            => $config['common.backgroundImage'],
-            'common.backgroundColor'            => $config['common.backgroundColor'], 
+            'common.backgroundColor'            => $config['common.backgroundColor'],
             'common.border'                     => $config['common.border'],
             'header.backgroundImage'            => $config['header.backgroundImage'],
             'header.backgroundColor'            => $config['header.backgroundColor'],
