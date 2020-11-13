@@ -11,6 +11,6 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/css/custombox.min.css'); ?>" />
         <link rel="stylesheet" href="<?php echo base_url('assets/css/vegas.min.css'); ?>" />
         <link rel="stylesheet" href="<?php echo base_url('assets/css/slider-style.css'); ?>" />
-        <title>Fivelements</title>
+        <title>Legian Beach Hotel</title>
 
 </head>

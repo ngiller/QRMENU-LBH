@@ -20,7 +20,7 @@
             <?php
               if (count($whatson_data) > 0) { 
             ?>
-            <div class="text-center"><?php if ($guest_name != "") { echo "<h5>Dear " . $guest_name.",</h5>"; } ?><h4>Welcome to<br>Fivelements Retreat Bali</h4></div>
+            <div class="text-center"><?php if ($guest_name != "") { echo "<h5>Dear " . $guest_name.",</h5>"; } ?><h4>Welcome to<br>Legian Beach Hotel</h4></div>
             
             <div class="h4line"></div>
             <?php

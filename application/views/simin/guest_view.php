@@ -118,7 +118,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						"targets": [-1]
 					},
 					{
-						"width": "120px",
+						"width": "150px",
 						"targets": [-2]
 					},
 					{

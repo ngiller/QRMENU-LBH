@@ -46,69 +46,70 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                                             <div class="card m-b-20" style="font-size: 13px;">
                                                                 <div class="card-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-2">
-                                                                            Date
+                                                                    <div id="print_area" style="padding: 50px;">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-2">
+                                                                                Date :
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <?= $master->date; ?>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-sm-4">
-                                                                            : <?= $master->date; ?>
+                                                                        <div class="row mt-1">
+                                                                            <div class="col-sm-2">
+                                                                                Name :
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <?= $master->name; ?>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row mt-1">
-                                                                        <div class="col-sm-2">
-                                                                            Name
+                                                                        <div class="row mt-1">
+                                                                            <div class="col-sm-2">
+                                                                                Email Address :
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <?= $master->email; ?>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-sm-4">
-                                                                            : <?= $master->name; ?>
+                                                                        <div class="row mt-1">
+                                                                            <div class="col-sm-2">
+                                                                                Phone :
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <?= $master->phone; ?>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row mt-1">
-                                                                        <div class="col-sm-2">
-                                                                            Email Address
+                                                                        <div class="row mt-1">
+                                                                            <div class="col-sm-2">
+                                                                                SCORE :
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <?= $master->score; ?>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-sm-4">
-                                                                            : <?= $master->email; ?>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row mt-1">
-                                                                        <div class="col-sm-2">
-                                                                            Phone
-                                                                        </div>
-                                                                        <div class="col-sm-4">
-                                                                            : <?= $master->phone; ?>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row mt-1">
-                                                                        <div class="col-sm-2">
-                                                                            SCORE
-                                                                        </div>
-                                                                        <div class="col-sm-4">
-                                                                            : <?= $master->score; ?>
-                                                                        </div>
-                                                                    </div>
 
-                                                                    <hr>
+                                                                        <hr>
 
-                                                                    <div class="mb-5">
-                                                                        <ol>
-                                                                            <?php
-                                                                            $master = -1;
-                                                                            $first = 0;
-                                                                            foreach ($detail as $item) {
-                                                                            
+                                                                        <div class="mb-5">
+                                                                            <ol>
+                                                                                <?php
+                                                                                $master = -1;
+                                                                                $first = 0;
+                                                                                foreach ($detail as $item) {
+
                                                                                     if ($item->sub_of == 0) {
-                                                                                        if ($first == 1) { 
+                                                                                        if ($first == 1) {
                                                                                             echo "</ul>";
                                                                                         }
-                                                                                        $first = 1; 
-                                                                                        echo "<li class='mt-3' style='line-height: 23px;'>".$item->question . " " ;
+                                                                                        $first = 1;
+                                                                                        echo "<li class='mt-3' style='line-height: 23px;'>" . $item->question . " ";
                                                                                     } else {
-                                                                                        echo "<li class='mt-2' style='line-height: 23px;'>".$item->question . " ";
+                                                                                        echo "<li class='mt-2' style='line-height: 23px;'>" . $item->question . " ";
                                                                                     }
 
                                                                                     if ($item->answer_type == 1) {
                                                                                         if ($item->answer == 1) {
-                                                                                    ?>
+                                                                                ?>
 
                                                                                             <span class="badge badge-success"> NO </span>
 
@@ -133,16 +134,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                                     if ($item->sub_of == 0) {
                                                                                         echo "<ul>";
                                                                                     }
-                                                                                    
+
                                                                                     ?>
 
-                                                                                
-                                                                            <?php
-                                                                            }
-                                                                            ?>
-                                                                        </ol>
+
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </ol>
+                                                                        </div>
                                                                     </div>
                                                                     <hr>
+                                                                    <button type="button" class="btn btn-sm btn-primary mr-2 mt-2" onclick="javascript:export_to_PDF('print_area')"> Export to PDF </button>
                                                                     <a href="javascript:window.history.back();" class="btn btn-sm btn-success mt-2"> Close </a>
 
                                                                 </div>
@@ -172,6 +175,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- end:: Page -->
 
     <?php $this->load->view("simin/_includes/footer.php"); ?>
+    <script src="/assets/vendors/general/html2pdf/html2pdf.bundle.min.js"></script>
 
 
     <script type="text/javascript">
@@ -190,6 +194,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 }
             });
         });
+
+        function export_to_PDF(divID) {
+            // Choose the element that our invoice is rendered in.
+            const element = document.getElementById(divID);
+            // Choose the element and save the PDF for our user.
+            html2pdf()
+                .from(element)
+                .save();
+
+        }
     </script>
 </body>
 

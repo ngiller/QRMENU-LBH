@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
 
     <script type="text/javascript">
-        backimage = '/uploads/user/home-slider/home-bg-01a.jpg';
+        backimage = '/uploads/user/home-slider/home.jpg';
     </script>
 
     <?php $this->load->view($this->session->template_folder . "/_includes/js_home.php"); ?>
@@ -52,7 +52,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
         </div>
     </div>
-
 
 </body>
 
