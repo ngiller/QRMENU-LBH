@@ -417,7 +417,7 @@ img {
 .amado-btn {
   display: inline-block;
   min-width: 125px;
-  height: 35px;
+  height: 30px;
   color: #ffffff;
   border: none;
   border-radius: 0;
@@ -430,7 +430,7 @@ img {
 .amado-btn.active,
 .amado-btn:hover,
 .amado-btn:focus {
-  font-size: 18px;
+  font-size: 13px;
   color: #ffffff;
   background-color: #131212;
 }

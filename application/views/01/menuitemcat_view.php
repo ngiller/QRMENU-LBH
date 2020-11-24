@@ -144,20 +144,20 @@
                                                     ?>
                                                     <!-- Ratings & Cart -->
                                                     <div class="d-flex justify-content-end">
-                                                        <span style="margin-right: 8px;"><a href="/menu/detail/<?php echo $menu->id; ?>"><button type="reset" class="cart-link">DETAIL</button></a></span>
+                                                        <span style="margin-right: 8px;"><a href="/menu/detail/<?php echo $menu->id; ?>"><button type="reset" class="cart-link amado-btn">DETAIL</button></a></span>
                                                         <?php
                                                         //---- If any sub menu redirect to detail menu------------------
                                                         $num_submenu = $this->sub_menu_model->count_filtered($menu->id);
                                                         if ($num_submenu > 0) {
                                                         ?>
-                                                            <span style="margin-right: 8px;"><a href="/menu/detail/<?php echo $menu->id; ?>"><button type="reset" class="cart-link">ORDER</button></a></span>
+                                                            <span style="margin-right: 8px;"><a href="/menu/detail/<?php echo $menu->id; ?>"><button type="reset" class="cart-link amado-btn">ORDER</button></a></span>
                                                         <?php
                                                         } else {
                                                         ?>
                                                             <form method="post" action="/cart/add">
                                                                 <input name="menuid" type="hidden" value="<?php echo $menu->id ?>" />
                                                                 <input name="quantity" type="hidden" value="1" />
-                                                                <button type="submit" class="cart-link">ORDER</button>
+                                                                <button type="submit" class="cart-link amado-btn">ORDER</button>
                                                             </form>
                                                         <?php
                                                         }
