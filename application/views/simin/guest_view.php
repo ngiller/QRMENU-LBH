@@ -51,6 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 																<th>Email Address</th>
 																<th>Guest Name</th>
 																<th>Phone</th>
+																<th>Member ID</th>
 																<th>Country</th>
 																<th>Action</th>
 																<th></th>

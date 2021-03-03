@@ -107,13 +107,13 @@ class Guests extends CI_Controller
             $row[] = $guest->email;
             $row[] = $guest->name;
             $row[] = $guest->phone;
+            $row[] = $guest->member_id;
             $row[] = $guest->countryname;;
 
             //add html for action
             $row[] = '<a class="btn btn-outline-hover-info btn-sm btn-icon btn-circle edit_data" title="Edit" href="javascript:void(0)" onclick="edit_record(' . "'" . $guest->id . "'" . ')"><i class="flaticon-edit"></i></a>
                 <a class="btn btn-outline-hover-info btn-sm btn-icon btn-circle del_data" href="javascript:void(0)" title="Delete" onclick="delete_record(' . "'" . $guest->id . "'" . ')"><i class="flaticon-delete"></i></a>
-                <a class="btn btn-outline-hover-info btn-sm btn-icon btn-circle edit_data" title="View order" href="javascript:void(0)" onclick="view_order(' . "'" . $guest->id . "'" . ')"><i class="flaticon-list-2"></i></a>
-                <a class="btn btn-outline-hover-info btn-sm btn-icon btn-circle edit_data" title="View order" href="javascript:void(0)" onclick="view_menu(' . "'" . $guest->id . "'" . ')"><i class="flaticon-list-2"></i></a>';
+                <a class="btn btn-outline-hover-info btn-sm btn-icon btn-circle edit_data" title="View order" href="javascript:void(0)" onclick="view_order(' . "'" . $guest->id . "'" . ')"><i class="flaticon-list-2"></i></a>';
             $row[] = '<input type="checkbox" name="id[]" class="delete_customer" value="' . $guest->id . '" />';
 
             $data[] = $row;

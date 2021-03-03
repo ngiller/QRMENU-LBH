@@ -30,14 +30,33 @@ class Guest_model extends CI_Model
         return $data->result();
     }
 
+    /*function uniqidReal($lenght = 13) {
+        // uniqid gives 13 chars, but you could adjust it to your needs.
+        if (function_exists("random_bytes")) {
+            $bytes = random_bytes(ceil($lenght / 2));
+        } elseif (function_exists("openssl_random_pseudo_bytes")) {
+            $bytes = openssl_random_pseudo_bytes(ceil($lenght / 2));
+        } else {
+            throw new Exception("no cryptographically secure random function available");
+        }
+        return substr(bin2hex($bytes), 0, $lenght);
+    }*/
+
     function save($email, $name, $phone, $country = "")
     {
+
+        //$link = $this->uniqidReal(40);
+        $this->load->library('randomlink');
+        $link = $this->randomlink->create_link(40);
+
         $data = array(
             'email' => $email,
             'name' => $name,
             'phone' => $phone,
             'country' => $country,
             'register_date' => date('Y-m-d H:m:s'),
+            'member_register' => 0,
+            'register_link' => $link,
             'propertyid' => $this->session->propertyid
 
         );
@@ -154,5 +173,19 @@ class Guest_model extends CI_Model
     {
         $this->db->update($this->table, $data, $where);
         return $this->db->affected_rows();
+    }
+
+    public function get_link_id($id) {
+        $this->db->where('id', $id);
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function get_member_link($id) {
+        $this->db->where('register_link', $id);
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query->row();
     }
 }

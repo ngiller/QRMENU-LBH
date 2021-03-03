@@ -95,6 +95,23 @@ class Home extends CI_Controller {
                     $this->guest_model->save($email, $name, $phone, "");
                 }
                 $guest = $this->guest_model->get_by_email($email, $property->id);
+
+                if ($guest->register_link == '') {
+                    $this->load->library('randomlink');
+                    $link = $this->randomlink->create_link(40);
+                } else {
+                    $link = $guest->register_link;
+                }
+
+                $guest_id = $guest->id;
+                $guest_update = array(
+                    'email' => $email,
+                    'name' => $name,
+                    'phone' => $phone,
+                    'register_link' => $link
+                );
+                $this->guest_model->update(array('id' => $guest_id), $guest_update);
+
                 $outlet = $this->outlet_model->get_by_code($property->id, '999');
                 
                 $data_session = array(                        

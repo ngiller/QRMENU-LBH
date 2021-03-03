@@ -61,10 +61,55 @@ class Finish extends CI_Controller
             }
         }
 
+        $guest = $this->guest_model->get_link_id($this->session->guestid);
+        $this->send_member_mail($guest->email, $guest->register_link);
 
         $data['template_folder'] = $this->session->template_folder;
         $closeword = $this->setting_model->get_setting_value('closeword', $this->session->propertyid);
         $data['closeword'] = $closeword->text_value;
         $this->load->view($this->session->template_folder . '/declaration/finish_view', $data);
+    }
+
+    function send_member_mail($to_email, $link) {
+        // Konfigurasi email
+        $config = [
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'protocol'  => 'smtp',
+            'smtp_host' => 'mail.pps.co.id',
+            'smtp_user' => 'noreply@pps.co.id',  // Email gmail
+            'smtp_pass'   => 'inbali8118',  // Password gmail
+            'smtp_crypto' => 'tls',
+            'smtp_port'   => 587,
+            'crlf'    => "\r\n",
+            'newline' => "\r\n"
+        ];
+
+        // Load library email dan konfigurasinya
+        $this->load->library('email', $config);
+
+        // Email dan nama pengirim
+        $this->email->from('norepply@pps.co.id', 'PPS info');
+
+        // Email penerima
+        $this->email->to($to_email); // Ganti dengan email tujuan
+
+        // Lampiran email, isi dengan url/path file
+        //$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
+
+        // Subject email
+        $this->email->subject('Delaration Submision');
+
+        // Isi email
+        $this->email->message("Thank you form your declaration submision.<br><br> Click <strong><a href='https://contactless.easyconnect.id/declaration/member/register/" . $link . "' target='_blank' rel='noopener'>here</a></strong> if you want to be a member.");
+
+        // Tampilkan pesan sukses atau error
+        //$this->email->send();
+        if ($this->email->send()) {
+            echo 'Sukses! email berhasil dikirim.';
+        } else {
+            echo 'Error! email tidak dapat dikirim.';
+        }
+    
     }
 }

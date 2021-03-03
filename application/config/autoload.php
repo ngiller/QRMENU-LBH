@@ -134,3 +134,5 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array();
 
+$config['composer_autoload'] = "./vendor/autoload.php";
+

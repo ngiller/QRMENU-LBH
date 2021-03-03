@@ -47,6 +47,7 @@
 				</li>
 				<li class="<?php echo ($active_menu == 20) ? 'kt-menu__item kt-menu__item--active' : 'kt-menu__item'; ?>" aria-haspopup="true"><a href="/simin/order" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-cart"></i><span class="kt-menu__link-text">Orders</span></a></li>
 				<li class="<?php echo ($active_menu == 30) ? 'kt-menu__item kt-menu__item--active' : 'kt-menu__item'; ?>" aria-haspopup="true"><a href="/simin/guests" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-customer"></i><span class="kt-menu__link-text">Guests</span></a></li>
+				<li class="<?php echo ($active_menu == 35) ? 'kt-menu__item kt-menu__item--active' : 'kt-menu__item'; ?>" aria-haspopup="true"><a href="/simin/membership" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-customer"></i><span class="kt-menu__link-text">Membership</span></a></li>
 				<li class="kt-menu__section ">
 					<h4 class="kt-menu__section-text">Menu Setup</h4>
 					<i class="kt-menu__section-icon flaticon-more-v2"></i>
